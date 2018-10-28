@@ -25,11 +25,11 @@ E117: Unknown function: pythoncomplete#Complete
 
    `vim --version`
 
-   ![Vim 的 Python 支持](/images/posts/vim/vim-without-python.png)
+   ![Vim 的 Python 支持](/back_up_images/posts/vim/vim-without-python.png)
 
    `gvim --version`
 
-   ![gVim 的 Python 支持](/images/posts/vim/gvim-with-python.png)
+   ![gVim 的 Python 支持](/back_up_images/posts/vim/gvim-with-python.png)
 
    由此看出，在 Vim.org 下载的 Windows 版 gVim 的 Vim 编译时倒确实未启用 Python 支持，但是 gVim 启用了。我明明使用的是 gVim，不是 Vim 呀！难道 gVim 其实只是一个调用 Vim 的壳？窃以为不太可能……上 Vim.org 找了半天，从描述上没看出来提供的几个 MS-Windows 安装包的 Python 支持的相关说明，下载了一个与之前下载的版本不同的版本安装了，结果还是与上面一样，笔记本上都可以做到，那应该不是 gVim 版本的问题。
 
@@ -46,7 +46,7 @@ E117: Unknown function: pythoncomplete#Complete
 
    提示无法加载 python27.dll。使用 everything 小工具在磁盘里找了一下，发现能找到 C:\Windows\system32\python27.dll，这个路径应该是直接在系统环境变量里的，为何会无法加载呢？除非……gVim.exe 是 32 位程序，在任务管理器里看：
 
-   ![gVim 是 32 位程序](/images/posts/vim/gvim-32bit.png)
+   ![gVim 是 32 位程序](/back_up_images/posts/vim/gvim-32bit.png)
 
    那看样子我安装的 Python 是 64 位版本的。在命令行里执行 Python.exe 看了一下果然如此：
 
@@ -70,4 +70,4 @@ Vim 官网下载的 Windows 版本 gVim 的 GUI 程序编译时启用了 Python 
 
 卸载掉 64 位的 Python，安装 32 位的，可以看到 C:\Windows\SysWOW64 文件夹下有了之前没有的 python27.dll 文件。再执行 Python 的自动补全，已经能看到了：
 
-![Python 自动补全](/images/posts/vim/vim-python-autocomplete.png)
+![Python 自动补全](/back_up_images/posts/vim/vim-python-autocomplete.png)

@@ -172,17 +172,17 @@ Ubuntu 14.04 LTS 在 VirtualBox 中刚安装完时，分辨率只有 640\*480 �
 
 1. 打开 xdiagnose
 
-   ![](/images/posts/linux/xdiagnose.png)
+   ![](/back_up_images/posts/linux/xdiagnose.png)
 
 2. 勾选 Debug 下的所有选项
 
-   ![](/images/posts/linux/xdiagnose-2.png)
+   ![](/back_up_images/posts/linux/xdiagnose-2.png)
 
 3. 重启
 
 4. 安装增强功能
 
-   ![](/images/posts/linux/install-additions.png)
+   ![](/back_up_images/posts/linux/install-additions.png)
 
    然后：
 

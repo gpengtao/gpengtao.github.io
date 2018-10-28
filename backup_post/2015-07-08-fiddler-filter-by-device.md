@@ -81,11 +81,11 @@ keywords: Fiddler, Filter, Device
 
 * 筛选前
 
-  ![](/images/posts/fiddler/fiddler-filter-by-device-before.png)
+  ![](/back_up_images/posts/fiddler/fiddler-filter-by-device-before.png)
 
 * 筛选后
 
-  ![](/images/posts/fiddler/fiddler-filter-by-device-after.png)
+  ![](/back_up_images/posts/fiddler/fiddler-filter-by-device-after.png)
 
 ### 缺陷
 

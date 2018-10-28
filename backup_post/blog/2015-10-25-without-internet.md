@@ -24,7 +24,7 @@ keywords: internet, 断网
 
 没网的周末，闲着也是闲着，洗完衣服洗被子，洗完被子刷鞋子，刷完鞋子打扫房间，整理书桌，然后翻开 RMBP，习惯性地打开浏览器，然后等待我的是这么个画面：
 
-![](/images/blog/offline.jpg)
+![](/back_up_images/blog/offline.jpg)
 
 既然如此，那么干点啥吧，打开 OneNote 里的 Todo 页，挑了个拖了很久的任务做一下，高效地将一段困扰了好久的 Smali 翻译成了 Java 代码，后来感觉有点乏了，躲到被窝里点亮 KPW 去看前一阵同事推荐的《从清末到民国》。
 

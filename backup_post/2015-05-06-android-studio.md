@@ -10,7 +10,7 @@ keywords: Android, Android Studio
 
 如图：
 
-![](/images/posts/android/android-studio-check-sdk.png)
+![](/back_up_images/posts/android/android-studio-check-sdk.png)
 
 Android Studio First Run 检测 Android SDK 及更新，由于众所周知的原因，我们会「Unable to access Android SDK add-on list」，而且大家一般也已经提前配置好了 Android SDK，真正需要更新的时候手动去 SDK Manager 更新就好了。
 
@@ -34,7 +34,7 @@ Error:Failed to find: com.android.support:appcompat-v7:22.+
 
 1. 打开 SDK Manager，然后安装 Extras 下的 Android Support Repository：
 
-   ![](/images/posts/android/android-support-repository.png)
+   ![](/back_up_images/posts/android/android-support-repository.png)
 
 2. Rebuild 工程。
 
@@ -416,7 +416,7 @@ allprojects {
 
 所有相关文件的编码都是 UTF-8，在 Android Studio 里没有找到设置 JavaDoc 相关的编码设置项，于是在 `Generate JavaDoc` 时弹出的 `Specify Generate JavaDoc Scope` 对话框的 `Other command line arguments` 一项里填入 `-encoding utf-8 -charset utf-8`，问题解决。
 
-![android-studio-javadoc](/images/posts/android/android-studio-javadoc.png)
+![android-studio-javadoc](/back_up_images/posts/android/android-studio-javadoc.png)
 
 ## 升级 Gradle Plugin 版本后报错
 

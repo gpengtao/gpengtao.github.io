@@ -12,7 +12,7 @@ keywords: Mac OS X, Zeal
 
 可惜好景不长。
 
-![](/images/posts/mac/dash-wait.png)
+![](/back_up_images/posts/mac/dash-wait.png)
 
 畅快地查询几次之后就经常看到这个等待的界面了，提示 `Please Purchase to Skip Waiting. The page will load in 8 seconds.`，用它就是为了提升查询效率的，年轻的生命禁不起这样的等待。
 
@@ -76,7 +76,7 @@ Zeal 的源码在 [zealdocs/zeal][1]，编译方法在 README 的 [How to compil
 
 ## 使用截图
 
-![zeal-for-mac](/images/posts/mac/zeal-for-mac.png)
+![zeal-for-mac](/back_up_images/posts/mac/zeal-for-mac.png)
 
 ## 遇到过的问题
 

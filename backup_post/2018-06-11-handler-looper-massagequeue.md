@@ -494,7 +494,7 @@ new Thread() {
 
 使用 insight.io 插件的功能，在 Looper.prepareMainLooper 上点一下即可看到引用处列表，一共两处：
 
-![](/images/posts/android/prepare-main-looper.png)
+![](/back_up_images/posts/android/prepare-main-looper.png)
 
 从文件路径和文件名上猜测应该是第一处。
 

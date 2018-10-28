@@ -78,11 +78,11 @@ OpenGrok 提供如下特性：
 
 搜索功能和源码树：
 
-![OpenGrok Search and Browse](/images/posts/tools/opengrok-scr1.png)
+![OpenGrok Search and Browse](/back_up_images/posts/tools/opengrok-scr1.png)
 
 代码导航和版本历史记录：
 
-![OpenGrok Navitation and History](/images/posts/tools/opengrok-scr2.png)
+![OpenGrok Navitation and History](/back_up_images/posts/tools/opengrok-scr2.png)
 
 ### 安装和配置
 
@@ -92,7 +92,7 @@ OpenGrok 提供如下特性：
 
 2. 下载 [Tomcat](http://tomcat.apache.org/)，解压到一个目录，如 D:\Programs\apache-tomcat-8.5.8，并将此目录添加为 CATALINA_HOME 环境变量。
 
-   ![](/images/posts/tools/catalina-home.png)
+   ![](/back_up_images/posts/tools/catalina-home.png)
 
 3. 下载 [Universal Ctags](https://github.com/universal-ctags/ctags) for Windows，将 ctags.exe 文件所在目录添加到 PATH 环境变量。
 

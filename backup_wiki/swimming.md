@@ -16,7 +16,7 @@ keywords: 游泳, 蛙泳
 
 ### 动作时序图
 
-![](/images/wiki/breaststroke.png)
+![](/back_up_images/wiki/breaststroke.png)
 
 ### 要领
 

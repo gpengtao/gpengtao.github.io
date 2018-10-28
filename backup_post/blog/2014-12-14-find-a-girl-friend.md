@@ -39,11 +39,11 @@ keywords: 工科男, 找对象
 
    你眼中阳光帅气能迷倒万千少女的自己：
 
-   ![Andy Lau](/images/blog/Andy-Lau.jpg)
+   ![Andy Lau](/back_up_images/blog/Andy-Lau.jpg)
 
    女生眼中不修边幅情商爆低邋遢猥琐的你：
 
-   ![Sharp Brother](/images/blog/Sharp-Brother.jpg)
+   ![Sharp Brother](/back_up_images/blog/Sharp-Brother.jpg)
 
    如何了解别人眼中的自己？那是个问题。也许可以参考无秘最近做的「我的好友印象墙」。
 
@@ -87,7 +87,7 @@ keywords: 工科男, 找对象
 
    虽然现在也有一些女生天天花痴一些呆萌的东东比如萌宠啊啥的，但是第一，你不是不会讲话的宠物，别人对你的预期不同；第二，呆不一定会带来萌，真的。萌属性理工男的真相：
 
-   ![萌属性理工男的真相](/images/blog/Diamond.jpg)
+   ![萌属性理工男的真相](/back_up_images/blog/Diamond.jpg)
 
    你可以吗？
 

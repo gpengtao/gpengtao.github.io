@@ -23,7 +23,7 @@ keywords: C++
 
 内存结构：
 
-![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual.png)
+![Object with no virtual function](/back_up_images/posts/cplusplus/objectwithnovirtual.png)
 
 验证如下：
 
@@ -53,7 +53,7 @@ int main()
 
 来看看 obj 的实际内存分布：
 
-![Object with no virtual function](/images/posts/cplusplus/objectwithnovirtual_mem.png)
+![Object with no virtual function](/back_up_images/posts/cplusplus/objectwithnovirtual_mem.png)
 
 小结：
 
@@ -63,7 +63,7 @@ int main()
 
 内存结构：
 
-![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual.png)
+![Object with virtual functions](/back_up_images/posts/cplusplus/objectwithvirtual.png)
 
 验证如下：
 
@@ -95,7 +95,7 @@ int main()
 
 来看看 obj1 和 obj2 的实际内存结构：
 
-![Object with virtual functions](/images/posts/cplusplus/objectwithvirtual_mem.png)
+![Object with virtual functions](/back_up_images/posts/cplusplus/objectwithvirtual_mem.png)
 
 小结：
 
@@ -109,7 +109,7 @@ int main()
 
 内存结构：
 
-![derive no override](/images/posts/cplusplus/derivenooverride.png)
+![derive no override](/back_up_images/posts/cplusplus/derivenooverride.png)
 
 验证如下：
 
@@ -146,7 +146,7 @@ int main()
 
 来看看 pDerive 的实际内存结构：
 
-![derive no override](/images/posts/cplusplus/derivenooverride_mem.png)
+![derive no override](/back_up_images/posts/cplusplus/derivenooverride_mem.png)
 
 小结：
 
@@ -157,7 +157,7 @@ int main()
 
 内存结构：
 
-![derive override](/images/posts/cplusplus/deriveoverride.png)
+![derive override](/back_up_images/posts/cplusplus/deriveoverride.png)
 
 验证如下：
 
@@ -195,13 +195,13 @@ int main()
 
 来看看 pDerive 的实际内存结构：
 
-![derive override](/images/posts/cplusplus/deriveoverride_mem.png)
+![derive override](/back_up_images/posts/cplusplus/deriveoverride_mem.png)
 
 ### 普通多继承的类对象的内存结构
 
 内存结构：
 
-![multi derive](/images/posts/cplusplus/multiderive.png)
+![multi derive](/back_up_images/posts/cplusplus/multiderive.png)
 
 验证如下：
 
@@ -252,7 +252,7 @@ int main()
 
 来看看 pDerive、pBase1 和 pBase2 在实际内存中的情况：
 
-![multi derive](/images/posts/cplusplus/multiderive_mem.png)
+![multi derive](/back_up_images/posts/cplusplus/multiderive_mem.png)
 
 小结：
 
@@ -265,7 +265,7 @@ int main()
 
 内存结构：
 
-![virtual derive](/images/posts/cplusplus/virtualderive.png)
+![virtual derive](/back_up_images/posts/cplusplus/virtualderive.png)
 
 验证如下：
 
@@ -304,7 +304,7 @@ int main()
 
 来看看 pDerive、pBase 在实际内存中的情况：
 
-![virtual derive](/images/posts/cplusplus/virtualderive_mem.png)
+![virtual derive](/back_up_images/posts/cplusplus/virtualderive_mem.png)
 
 小结：
 
@@ -315,7 +315,7 @@ int main()
 
 内存结构：
 
-![diamond derive](/images/posts/cplusplus/diamond.png)
+![diamond derive](/back_up_images/posts/cplusplus/diamond.png)
 
 验证如下：
 
@@ -377,7 +377,7 @@ int main()
 
 来看看 pDerive、pBase、pBase1 和 pBase2 在实际内存中的情况：
 
-![diamond derive](/images/posts/cplusplus/diamond_mem.png)
+![diamond derive](/back_up_images/posts/cplusplus/diamond_mem.png)
 
 小结：
 

@@ -8,7 +8,7 @@ keywords: 追风筝的人
 
 > 《追风筝的人》确实是一部相当优秀而又深刻的作品。——小别老师
 
-![](/images/blog/the-kite-runner.png)
+![](/back_up_images/blog/the-kite-runner.png)
 
 图 1. 《追风筝的人》/卡勒德.胡赛尼 封面
 

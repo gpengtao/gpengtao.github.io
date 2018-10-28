@@ -99,11 +99,11 @@ Scancode Map 这个键值的讲解实例参见 [Keyboard and mouse class drivers
 
 1. 右键任务栏库图标，右键弹出菜单里的“Windows 资源管理器”，单击“属性”。
 
-   ![](/images/posts/windows/library-to-computer-step-1.jpg)
+   ![](/back_up_images/posts/windows/library-to-computer-step-1.jpg)
 
 2. 在弹出对话框里将“目标”一栏的 `%windir%\explorer.exe` 改为 `%windir%\explorer.exe ,`，即加上一个空格一个逗号。
 
-   ![](/images/posts/windows/library-to-computer-step-2.png)
+   ![](/back_up_images/posts/windows/library-to-computer-step-2.png)
 
 参考：[如何将Win7/Win8任务栏库图标变为打开计算机](http://jingyan.baidu.com/article/046a7b3ee71d61f9c27fa91a.html)
 

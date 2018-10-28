@@ -62,7 +62,7 @@ keywords: Excel, Numbers
 
 ### 效果
 
-![](/images/posts/excel/remove-duplicate.png)
+![](/back_up_images/posts/excel/remove-duplicate.png)
 
 ### 总结
 

@@ -171,7 +171,7 @@ Cmd --> Command
 
 2. 在右侧找到 Code Generation 这个 tab，在 Naming 的 Prefer longer names 里，field 的 Name prefix 里填上 `m`，Static field 的 Name prefix 里填上 `s`。
 
-![code generation naming](/images/wiki/code-generation-naming.png)
+![code generation naming](/back_up_images/wiki/code-generation-naming.png)
 
 ### 设置 logcat 缓冲区条数
 

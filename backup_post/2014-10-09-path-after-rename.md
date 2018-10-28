@@ -88,7 +88,7 @@ int main()
 
 ### 运行结果
 
-![QueryFullProcessImageName](/images/posts/windows/queryfullprocessimagename.png)
+![QueryFullProcessImageName](/back_up_images/posts/windows/queryfullprocessimagename.png)
 
 ### 思考
 

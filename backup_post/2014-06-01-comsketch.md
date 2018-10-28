@@ -18,7 +18,7 @@ keywords: COM
 
 ### 客户程序创建组件对象
 
-![客户程序调用 COM 库创建组件对象的顺序图](/images/posts/com/clientcallcom.png)
+![客户程序调用 COM 库创建组件对象的顺序图](/back_up_images/posts/com/clientcallcom.png)
 
 ### 包容和聚合
 
@@ -28,7 +28,7 @@ keywords: COM
 
 对象包容示意图：
 
-![对象包容示意图](/images/posts/com/contain.png)
+![对象包容示意图](/back_up_images/posts/com/contain.png)
 
 **聚合**
 
@@ -36,7 +36,7 @@ keywords: COM
 
 对象聚合示意图：
 
-![对象聚合示意图](/images/posts/com/polymerize.png)
+![对象聚合示意图](/back_up_images/posts/com/polymerize.png)
 
 对象 A 也需要为支持聚合做一些事情——实现一个委托 IUnknown 接口和一个非委托 IUnknown 接口。
 
@@ -44,14 +44,14 @@ keywords: COM
 
 支持聚合的对象在非聚合方式下的接口示意图：
 
-![支持聚合的对象在非聚合方式下的接口示意图](/images/posts/com/polynormal.png)
+![支持聚合的对象在非聚合方式下的接口示意图](/back_up_images/posts/com/polynormal.png)
 
 支持聚合的对象在聚合方式下的接口示意图：
 
-![支持聚合的对象在聚合方式下的接口示意图](/images/posts/com/polypoly.png)
+![支持聚合的对象在聚合方式下的接口示意图](/back_up_images/posts/com/polypoly.png)
 
 ### 进程外组件与客户程序的协作方式
 
-![进程外组件与客户程序协作的结构图](/images/posts/com/outprocess.png)
+![进程外组件与客户程序协作的结构图](/back_up_images/posts/com/outprocess.png)
 
 > 代理对象用列集手段处理成员函数的参数，通过列集处理后得到一个数据包（数据流），然后通过一种跨进程的数据传输方法，比如共享内存方法，甚至是网络协议等，当数据包传输到对象进程后，存根代码用散集（列集的反过程）的方法把数据包参数解译出来，再用这些参数去调用组件对象；当组件对象成员函数返回后，存根代码又把返回值和输出参数列集成新的数据包，并把数据包传到客户进程中，代理对象接收到数据包后，把数据包解译出来再返回给客户函数，从而完成一次调用。

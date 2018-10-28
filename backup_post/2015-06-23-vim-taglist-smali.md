@@ -17,7 +17,7 @@ Smali 相当于 Dalvik 虚拟机的汇编语言，语法可以参考 [Dalvik opc
 
 最终效果图：
 
-![](/images/posts/vim/smali-vim.png)
+![](/back_up_images/posts/vim/smali-vim.png)
 
 当然因为现在 Android 应用打包时都会做不同程度的混淆，最后配置完后在 Taglist 下看到的可能是一堆 a，b，c 之类的名字。:-P
 
