@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://mazhuang.org
+url: https://gpengtao.github.io/gpt.github.io/
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: 花落不折枝
+subtitle: "神兽保佑🙏永无bug"
+description: "gpt的个人博客"
+keywords: 有花堪折直须折，莫待无花空折枝
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -15,12 +15,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: Pengtao Geng
+organization: gpengtao
+organization_url: https://gpengtao.github.io/gpt.github.io/
+github_username: gpengtao
+location: Beijing, China
+email: gpengtao@qq.com
 
 # ---------------- #
 #    Navigation    #
@@ -30,25 +30,25 @@ navs:
     href: /
     label: 首页
 
-  -
-    href: /categories/
-    label: 分类
+#  -
+#    href: /categories/
+#    label: 分类
 
 #   -
 #     href: /archives/
 #     label: 归档
 
-  -
-    href: /wiki/
-    label: 维基
-
-  -
-    href: /links/
-    label: 链接
-
-  -
-    href: /about/
-    label: 关于
+#  -
+#    href: /wiki/
+#    label: 维基
+#
+#  -
+#    href: /links/
+#    label: 链接
+#
+#  -
+#    href: /about/
+#    label: 关于
 
 # ---------------- #
 #       RSS        #
@@ -81,33 +81,33 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: mzlogin/mzlogin.github.io
+repository: gpengtao/gpt.github.io
 
 # ---------------- #
 #      Comments    #
 # ---------------- #
 # support provider: disqus, gitment, gitalk
-comments_provider: gitalk
-# !!!重要!!! 请修改下面这些信息为你自己申请的
-# !!!Important!!! Please modify infos below to yours
-# https://disqus.com
-disqus:
-    username: 
-# https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: mzlogin
-    repo: blog-comments
-    oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
-# https://github.com/gitalk/gitalk#install
-gitalk:
-    owner: mzlogin
-    repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
-# 在使用其它评论组件时可点击显示 Disqus
-lazy_load_disqus : false
+#comments_provider: gitalk
+## !!!重要!!! 请修改下面这些信息为你自己申请的
+## !!!Important!!! Please modify infos below to yours
+## https://disqus.com
+#disqus:
+#    username:
+## https://imsun.net/posts/gitment-introduction/
+#gitment:
+#    owner: mzlogin
+#    repo: blog-comments
+#    oauth:
+#        client_id: d2e1cbbd298958076462
+#        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+## https://github.com/gitalk/gitalk#install
+#gitalk:
+#    owner: mzlogin
+#    repo: blog-comments
+#    clientID: d2e1cbbd298958076462
+#    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+## 在使用其它评论组件时可点击显示 Disqus
+#lazy_load_disqus : false
 
 # ---------------- #
 #      Search      #
