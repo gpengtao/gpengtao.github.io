@@ -94,12 +94,12 @@ repository: gpengtao/gpt.github.io
 #disqus:
 #    username:
 ## https://imsun.net/posts/gitment-introduction/
-#gitment:
-#    owner: mzlogin
-#    repo: blog-comments
-#    oauth:
-#        client_id: d2e1cbbd298958076462
-#        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+gitment:
+    owner: gpengtao
+    repo: blog-comments
+    oauth:
+        client_id: ddf32b02a446baa89407
+        client_secret: 66cfb9a1f5eeba62da2b256f6b1ea52247b78a56
 ## https://github.com/gitalk/gitalk#install
 #gitalk:
 #    owner: mzlogin
