@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://gpengtao.github.io/gpt.github.io/
+url: https://gpengtao.github.io/gpt.github.io
 date_format: "ordinal"
 title: 花落不折枝
 subtitle: "神兽保佑🙏永无bug"
