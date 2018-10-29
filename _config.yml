@@ -104,8 +104,8 @@ repository: gpengtao/gpt.github.io
 gitalk:
     owner: gpengtao
     repo: blog-comments
-    clientID: 1bfb201eb02c5350f2d5
-    clientSecret: 4d888433ec0b9fb82d8c6949d1d10ddeb06506c6
+    clientID: ddf32b02a446baa89407
+    clientSecret: 66cfb9a1f5eeba62da2b256f6b1ea52247b78a56
 ## 在使用其它评论组件时可点击显示 Disqus
 #lazy_load_disqus : false
 
