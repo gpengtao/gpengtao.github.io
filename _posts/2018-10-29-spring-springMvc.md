@@ -1,14 +1,15 @@
 ---
 layout: post
 title: spring和springMvc
-categories: Blog
+categories: spring
 description: spring和springMvc。
 keywords: spring, springMvc
 ---
 
-* TOC
+*目录*
+* Toc
 {:toc}
 
-# 是什么
+# spring
 
-# 区别
+# springMvc
