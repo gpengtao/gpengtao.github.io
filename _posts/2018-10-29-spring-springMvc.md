@@ -12,6 +12,6 @@ keywords: spring, springMvc
 
 # spring
 
-<img src="/images/blog/spring-projects.png" alt="部分spring projects" width="50%" height="50%"/>
+<img src="/gpt.github.io/images/blog/spring-projects.png" alt="部分spring projects" width="50%" height="50%"/>
 
 # springMvc
