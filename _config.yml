@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://gpengtao.github.io/gpt.github.io
+url: https://gpengtao.github.io/
 date_format: "ordinal"
 title: 花落不折枝
 subtitle: "神兽保佑🙏永无bug"
@@ -17,7 +17,7 @@ side_bar_repo_limit: 5
 # ---------------- #
 author: Pengtao Geng
 organization: gpengtao
-organization_url: https://gpengtao.github.io/gpt.github.io/
+organization_url: https://gpengtao.github.io/
 github_username: gpengtao
 location: Beijing, China
 email: gpengtao@qq.com
@@ -81,7 +81,7 @@ collections:
         output: true
         permalink: /wiki/:path/
 
-repository: gpengtao/gpt.github.io
+repository: gpengtao/gpengtao.github.io
 
 # ---------------- #
 #      Comments    #
