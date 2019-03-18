@@ -19,7 +19,8 @@ keywords: spring, springMvc
 
 ## 平时常用的spring framework
 <p>
-平时说的spring，其实大部分意思是这个project而已，因为这个里面包含了最核心的"IoC container"部分，
+平时说的spring，其实大部分意思是这个project而已，因为这个里面包含了最核心的"IoC container"部分。
+springMvc是spring的一个模块。
 </p>
 <img src="/images/blog/spring-framework.png" alt="spring-framework" width="100%" height="100%"/>
 
