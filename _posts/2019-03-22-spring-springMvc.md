@@ -89,7 +89,9 @@ Root WebApplicationContext 通常包含基础设施 beans，比如数据存储�
 </web-app>
 ```
 
-下面的基于Java代码配置DispatcherServlet，它会被Servlet容器自动检测到：
+基于Java代码（Java-based）的配置方式，spring推荐的方式。
+
+下面的基于顶级接口 **WebApplicationInitializer** 配置DispatcherServlet，它会被Servlet容器自动检测到：
 ```java
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
@@ -109,27 +111,6 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     }
 }
 ```
-
-```java
-public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        return null;
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] { MyWebConfig.class };
-    }
-
-    @Override
-    protected String[] getServletMappings() {
-        return new String[] { "/" };
-    }
-}
-```
-
 ```java
 import org.springframework.web.WebApplicationInitializer;
 
@@ -147,6 +128,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 }
 ```
 
+基于抽象类 **AbstractDispatcherServletInitializer** 配置DispatcherServlet:
 ```java
 public class MyWebAppInitializer extends AbstractDispatcherServletInitializer {
 
@@ -168,7 +150,7 @@ public class MyWebAppInitializer extends AbstractDispatcherServletInitializer {
     }
 }
 ```
-
+还可以注册 **Filter**
 ```java
 public class MyWebAppInitializer extends AbstractDispatcherServletInitializer {
 
@@ -178,6 +160,27 @@ public class MyWebAppInitializer extends AbstractDispatcherServletInitializer {
     protected Filter[] getServletFilters() {
         return new Filter[] {
             new HiddenHttpMethodFilter(), new CharacterEncodingFilter() };
+    }
+}
+```
+
+基于抽象类 **AbstractAnnotationConfigDispatcherServletInitializer** 配置DispatcherServlet:
+```java
+public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return null;
+    }
+
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class<?>[] { MyWebConfig.class };
+    }
+
+    @Override
+    protected String[] getServletMappings() {
+        return new String[] { "/" };
     }
 }
 ```
