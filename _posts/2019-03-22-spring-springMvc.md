@@ -188,7 +188,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 # 什么是Servlet
 ## Java Servlet 是工业标准（standard）
 有两个大的版本：
-```java
+```html
 <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>servlet-api</artifactId>
@@ -196,7 +196,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
     <scope>provided</scope>
 </dependency>
 ```
-```java
+```html
 <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
@@ -210,7 +210,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 什么是标准，标准就是**接口**，定义了流程，定义了规范。
 
 ## Servlet Container
-**Web 服务器**
+### Web 服务器
 <p>
 Web 服务器使用 HTTP 协议来传输数据。最简单的一种情况是，用户在浏览器中输入一个URL（如，www.example.com/index.html），然后就能获取网页进行阅读。 
 因此，Web服务器完成的工作就是发送网页至客户端。传输过程遵循 HTTP 协议，它指明了请求（request）消息和响应（response）消息的格式。 
@@ -219,7 +219,7 @@ Web 服务器使用 HTTP 协议来传输数据。最简单的一种情况是，�
 <img src="/images/blog/spring-springMvc/web-server.jpg" alt="Web 服务器" width="60%" height="60%"/>
 <br>
 
-**Servlet 容器**
+### Servlet 容器
 <p>
 Servlet 容器为处理每个请求分配独立的 Java 线程。 
 每一个 Servlet 都是一个拥有能处理 HTTP 请求并作出响应的 Java 类。 
@@ -229,14 +229,9 @@ Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理
 <img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="Servlet 容器" width="60%" height="60%"/>
 <br>
 
-<br>
-
 > 参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/ 
 
-<br>
-
-**目前最流行的Servlet容器**
-
+### 目前最流行的Servlet容器
 Tomcat
 <p>
 Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。不过，Tomcat处理静态HTML的能力不如Apache服务器。
@@ -253,7 +248,7 @@ Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵�
 <p>
 
 # 配置Servlet的方式
-Servlet jar 包下有三个核心接口：
+## Servlet jar 包下有三个核心接口
 ```java
 package javax.servlet;
 
@@ -266,7 +261,6 @@ public interface ServletContextListener extends EventListener {
     public void contextDestroyed(ServletContextEvent sce);
 }
 ```
-
 ```java
 package javax.servlet;
 
@@ -281,7 +275,6 @@ public interface Filter {
     public void destroy();
 }
 ```
-
 ```java
 package javax.servlet;
 
@@ -300,7 +293,7 @@ public interface Servlet {
     public void destroy();
 }
 ```
-## 方式1：servlet 2.5 标准下的的web.xml
+## 配置方式1：servlet 2.5 标准下的的web.xml
 ```html
 <web-app>
 
@@ -329,7 +322,7 @@ public interface Servlet {
 
 </web-app>
 ```
-## 方式2：servlet 3.0 标准下的注解
+## 配置方式2：servlet 3.0 标准下的注解
 ```java
 @WebListener
 public class MyListener implements ServletContextListener {
@@ -400,7 +393,7 @@ public class ShowTimeServlet extends HttpServlet {
 }
 ```
 
-## 方式3：SPI
+## 配置方式3：SPI
 ### 认识 SPI
 SPI，全名：Service Provider Interface，Java SPI具体约定:
 <p>
@@ -482,7 +475,6 @@ public class SPITest {
 >哈喽<br>
 
 ### Servlet 的 SPI
-
 ```java
 package javax.servlet;
 
