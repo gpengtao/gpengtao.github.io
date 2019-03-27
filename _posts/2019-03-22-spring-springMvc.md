@@ -185,9 +185,64 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 }
 ```
 
-
+# 什么是Servlet
+## Java Servlet 是工业标准（standard）
+有两个大的版本：
+```java
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>2.5</version>
+    <scope>provided</scope>
+</dependency>
+```
+```java
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.1.0</version>
+    <scope>provided</scope>
+</dependency>
+```
 <p>
-servlet.jar 是servlet 3.0 版本之前的地址
-<br>
-javax.servlet-api.jar 是servlet 3.0 版本之后的地址
+3.0版本之后用了新的 artifactId。
 </p>
+什么是标准，标准就是**接口**，定义了流程，定义了规范。
+
+## Servlet Container
+**Web 服务器**
+<p>
+Web 服务器使用 HTTP 协议来传输数据。最简单的一种情况是，用户在浏览器中输入一个URL（如，www.example.com/index.html），然后就能获取网页进行阅读。 
+因此，Web服务器完成的工作就是发送网页至客户端。传输过程遵循 HTTP 协议，它指明了请求（request）消息和响应（response）消息的格式。 
+</p>
+<img src="/images/blog/spring-springMvc/web-server.jpg" alt="部分spring projects" width="60%" height="60%"/>
+<br>
+
+**Servlet 容器**
+<p>
+Servlet 容器为处理每个请求分配独立的 Java 线程。 
+每一个 Servlet 都是一个拥有能处理 HTTP 请求并作出响应的 Java 类。 
+Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理，并将动态生成的结果返回至客户端。 
+和所有的 Java 程序一样，Servlet 容器运行在 JVM 中。引入 Servlet 容器是为了处理复杂的 HTTP 请求。Servlet 容器负责 Servlet 的创建、执行和销毁。
+</p>
+<img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="部分spring projects" width="60%" height="60%"/>
+<br>
+
+**目前最流行的Servlet容器**
+
+Tomcat
+<p>
+Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。不过，Tomcat处理静态HTML的能力不如Apache服务器。
+</p>
+
+Jetty
+<p>
+Jetty 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。Jetty是使用Java语言编写的，它的API以一组JAR包的形式发布。开发人员可以将Jetty容器实例化成一个对象，可以迅速为一些独立运行（stand-alone）的Java应用提供网络和web连接。
+</p>
+
+Jboss
+<p>
+Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
+<p>
+
+# 配置Servlet
