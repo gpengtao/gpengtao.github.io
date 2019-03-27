@@ -230,23 +230,26 @@ Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理
 <img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="Servlet 容器" width="60%" height="60%"/>
 <br>
 
-参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/
+> 参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/
 
 ### 目前最流行的Servlet容器
 Tomcat
 <p>
-Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。不过，Tomcat处理静态HTML的能力不如Apache服务器。
+Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。
+不过，Tomcat处理静态HTML的能力不如Apache服务器。
 </p>
 
 Jetty
 <p>
-Jetty 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。Jetty是使用Java语言编写的，它的API以一组JAR包的形式发布。开发人员可以将Jetty容器实例化成一个对象，可以迅速为一些独立运行（stand-alone）的Java应用提供网络和web连接。
+Jetty 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。Jetty是使用Java语言编写的，
+它的API以一组JAR包的形式发布。开发人员可以将Jetty容器实例化成一个对象，可以迅速为一些独立运行（stand-alone）的Java应用提供网络和web连接。
 </p>
 
 Jboss
 <p>
-Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
-<p>
+Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，
+支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
+</p>
 
 # 配置Servlet的方式
 ## Servlet jar 包下有三个核心接口
