@@ -214,8 +214,9 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 <p>
 Web 服务器使用 HTTP 协议来传输数据。最简单的一种情况是，用户在浏览器中输入一个URL（如，www.example.com/index.html），然后就能获取网页进行阅读。 
 因此，Web服务器完成的工作就是发送网页至客户端。传输过程遵循 HTTP 协议，它指明了请求（request）消息和响应（response）消息的格式。 
+用户/客户端只能向 Web 服务器请求静态网页。
 </p>
-<img src="/images/blog/spring-springMvc/web-server.jpg" alt="部分spring projects" width="60%" height="60%"/>
+<img src="/images/blog/spring-springMvc/web-server.jpg" alt="Web 服务器" width="60%" height="60%"/>
 <br>
 
 **Servlet 容器**
@@ -225,7 +226,13 @@ Servlet 容器为处理每个请求分配独立的 Java 线程。
 Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理，并将动态生成的结果返回至客户端。 
 和所有的 Java 程序一样，Servlet 容器运行在 JVM 中。引入 Servlet 容器是为了处理复杂的 HTTP 请求。Servlet 容器负责 Servlet 的创建、执行和销毁。
 </p>
-<img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="部分spring projects" width="60%" height="60%"/>
+<img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="Servlet 容器" width="60%" height="60%"/>
+<br>
+
+<br>
+
+> 参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/ 
+
 <br>
 
 **目前最流行的Servlet容器**
@@ -245,4 +252,250 @@ Jboss
 Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
 <p>
 
-# 配置Servlet
+# 配置Servlet的方式
+Servlet jar 包下有三个核心接口：
+```java
+package javax.servlet;
+
+import java.util.EventListener;
+
+public interface ServletContextListener extends EventListener {
+
+    public void contextInitialized(ServletContextEvent sce);
+
+    public void contextDestroyed(ServletContextEvent sce);
+}
+```
+
+```java
+package javax.servlet;
+
+import java.io.IOException;
+
+public interface Filter {
+
+    public void init(FilterConfig filterConfig) throws ServletException;
+    
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException;
+
+    public void destroy();
+}
+```
+
+```java
+package javax.servlet;
+
+import java.io.IOException;
+
+public interface Servlet {
+
+    public void init(ServletConfig config) throws ServletException;
+
+    public ServletConfig getServletConfig();
+    
+    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException;
+
+    public String getServletInfo();
+   
+    public void destroy();
+}
+```
+## 方式1：servlet 2.5 标准下的的web.xml
+```html
+<web-app>
+
+    <listener>
+        <listener-class>com.gpengtao.web.listener.GptContextListener</listener-class>
+    </listener>
+
+    <filter>
+    	<filter-name>requestLogFilter</filter-name>
+    	<filter-class>om.gpengtao.web.filter.requestLogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+    	<filter-name>requestLogFilter</filter-name>
+    	<url-pattern>/gpt/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>showTime</servlet-name>
+        <servlet-class>com.gpengtao.servlet.ShowTimeServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showTime</servlet-name>
+        <url-pattern>/time/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+```
+## 方式2：servlet 3.0 标准下的注解
+```java
+@WebListener
+public class MyListener implements ServletContextListener {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        logger.info("<<<<<<<<<<<<<< My listener start <<<<<<<<<<<<<<<<<<<<<<<");
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        logger.info(">>>>>>>>>>>>>>> My lister end  >>>>>>>>>>>>>>>>>>>>>>>");
+    }
+}
+```
+```java
+@WebFilter(filterName = "myFilter", urlPatterns = "/*")
+public class MyFilter implements Filter {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Override
+    public void init(FilterConfig filterConfig) {
+        logger.info("<<<<<<<<<<<<< MyFilter 初始化, config={}", filterConfig);
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        logger.info("=================== do filter ===============");
+        chain.doFilter(request, response);
+    }
+
+    @Override
+    public void destroy() {
+        logger.info(">>>>>>>>>>>>>>> destroy my filter >>>>>>>>>>>>>>>>>>>>>>>");
+    }
+}
+```
+```java
+@WebServlet(name = "showTime", urlPatterns = "/time")
+public class ShowTimeServlet extends HttpServlet {
+
+	private final Logger logger = LoggerFactory.getLogger(ShowTimeServlet.class);
+
+	public ShowTimeServlet() {
+		logger.info("ShowTimeServlet constructed!");
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		logger.info("show time servlet receive request,uri:{}", req.getRequestURI());
+		resp.getWriter().write("ShowTime,现在时刻： " + new Date());
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		logger.info("ShowTime servlet 开始 init...");
+		super.init(config);
+	}
+
+	@Override
+	public void destroy() {
+		logger.info("ShowTime servlet 开始 destroy...");
+		super.destroy();
+	}
+}
+```
+
+## 方式3：SPI
+### 认识 SPI
+SPI，全名：Service Provider Interface，Java SPI具体约定:
+<p>
+当服务的提供者，提供了服务接口的一种实现之后，在jar包的META-INF/services/目录里同时创建一个以服务接口命名的文件。
+该文件里就是实现该服务接口的具体实现类。而当外部程序装配这个模块的时候，就能通过该jar包META-INF/services/里的配置文件找到具体的实现类名，
+并装载实例化，完成模块的注入。 
+基于这样一个约定就能很好的找到服务接口的实现类，而不需要再代码里制定。jdk提供服务实现查找的一个工具类：java.util.ServiceLoader。
+</p>
+
+定义接口：
+```java
+package com.gpengtao.java.spi;
+
+public interface SayHelloable {
+
+    void say();
+}
+
+```
+
+定义两个实现类：
+```java
+package com.gpengtao.java.spi;
+
+public class SayChineseHello implements SayHelloable {
+
+    @Override
+    public void say() {
+        System.out.println("哈喽");
+    }
+}
+
+```
+```java
+package com.gpengtao.java.spi;
+
+public class SayEnglishHello implements SayHelloable {
+
+    @Override
+    public void say() {
+        System.out.println("hello");
+    }
+}
+```
+
+在 /resources/META-INF/services 下建立文件 com.gpengtao.java.spi.SayHelloable 内容：
+<p>
+com.gpengtao.java.spi.SayEnglishHello
+<br>
+com.gpengtao.java.spi.SayChineseHello
+</p>
+
+运行测试类
+```java
+package com.gpengtao.java.spi;
+
+import org.junit.Test;
+
+import java.util.ServiceLoader;
+
+public class SPITest {
+
+    @Test
+    public void test() {
+        ServiceLoader<SayHelloable> loader = ServiceLoader.load(SayHelloable.class);
+
+        for (SayHelloable hello : loader) {
+            System.out.println(hello);
+            hello.say();
+        }
+    }
+}
+
+```
+输出的结果是：
+>com.gpengtao.java.spi.SayEnglishHello@736e9adb<br>
+>hello<br>
+>com.gpengtao.java.spi.SayChineseHello@6d21714c<br>
+>哈喽<br>
+
+### Servlet 的 SPI
+
+```java
+package javax.servlet;
+
+import java.util.Set;
+
+public interface ServletContainerInitializer {
+
+    public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException; 
+}
+```
+
+spring做了什么？
+
+<img src="/images/blog/spring-springMvc/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
+
+spring-web jar 包下配置了 SPI 文件，配置的接口是：**org.springframework.web.SpringServletContainerInitializer**。
