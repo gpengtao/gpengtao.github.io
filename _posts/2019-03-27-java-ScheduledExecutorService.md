@@ -10,6 +10,7 @@ keywords: ScheduledExecutorService
 * Toc
 {:toc}
 
+# 先来看一段代码
 ```java
 @Test
 public void test_schedule() throws IOException {
@@ -33,7 +34,7 @@ public void test_schedule() throws IOException {
 > 2<br>
 > 3<br>
 
-这个代码有两个问题：
+# 这个代码有两个问题
 
 1、出现的 RuntimeException 不会有任何感知。
 
@@ -47,7 +48,7 @@ If any execution of the task encounters an exception, subsequent executions are 
 </p>
 意思是：如果该任务的执行遇到异常，则随后的执行将被禁止。否则，任务将只能通过取消或终止执行者而终止。
 
-正确的姿势：
+# 正确的姿势：
 ```java
 new Runnable() {
     @Override
