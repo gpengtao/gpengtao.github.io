@@ -1,9 +1,9 @@
 ---
 layout: post
-title: spring和springMvc
+title: Spring 和 Spring MVC
 categories: spring
-description: spring和springMvc。
-keywords: spring, springMvc
+description: Spring 和 Spring MVC。
+keywords: Spring, Spring MVC
 ---
 
 *目录*
@@ -11,7 +11,7 @@ keywords: spring, springMvc
 {:toc}
 
 
-# spring
+# Spring
 ## 先看下spring.io
 <p>
 从配置管理到安全性、web应用程序到大数据处理，无论你的项目需要什么样的基础设施，总有一个 Spring Project 能帮助到你构建你的项目。从小处开始，只使用你需要的部分–Spring是模块化设计的。（翻译自spring-projects首页：https://spring.io/projects）
@@ -19,11 +19,11 @@ keywords: spring, springMvc
 
 <img src="/images/blog/spring-springMvc/some-spring-projects.png" alt="部分spring projects" width="80%" height="80%"/>
 
-## 平时常用的spring framework
+## 平时常用的Spring Framework
 <p>
 平时说的spring，其实大部分意思是这个project而已，因为这个里面包含了最核心的"IoC container"部分。
 
-springMvc是spring的一个模块。
+Spring MVC是spring的一个模块。
 </p>
 
 <img src="/images/blog/spring-springMvc/spring-framework.png" alt="spring-framework" width="100%" height="100%"/>
@@ -334,14 +334,14 @@ public interface ServletContainerInitializer {
 }
 ```
 
-### spring 做了什么
+### Spring 做了什么
 
 <img src="/images/blog/spring-springMvc/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
 
 spring-web jar 包下配置了 SPI 文件，配置的接口是：**org.springframework.web.SpringServletContainerInitializer**。
 
 
-# springMvc
+# Spring MVC
 ## Web on Servlet Stack
 <p>
 Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就被包含在Spring框架中。
