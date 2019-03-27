@@ -186,6 +186,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
 ```
 
 # 什么是Servlet
+
 ## Java Servlet 是工业标准（standard）
 有两个大的版本：
 ```html
@@ -229,7 +230,7 @@ Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理
 <img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="Servlet 容器" width="60%" height="60%"/>
 <br>
 
-> 参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/ 
+参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/
 
 ### 目前最流行的Servlet容器
 Tomcat
