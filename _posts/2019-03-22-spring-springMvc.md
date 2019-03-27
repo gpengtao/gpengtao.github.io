@@ -334,7 +334,7 @@ public interface ServletContainerInitializer {
 }
 ```
 
-### spring 做了什么？
+### spring 做了什么
 
 <img src="/images/blog/spring-springMvc/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
 
