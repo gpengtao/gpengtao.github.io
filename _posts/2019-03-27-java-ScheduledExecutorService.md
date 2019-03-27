@@ -49,6 +49,7 @@ If any execution of the task encounters an exception, subsequent executions are 
 意思是：如果该任务的执行遇到异常，则随后的执行将被禁止。否则，任务将只能通过取消或终止执行者而终止。
 
 # 正确的姿势：
+写在线程中运行的 Runnable 的代码，上来先 try catch **一切**。
 ```java
 new Runnable() {
     @Override
