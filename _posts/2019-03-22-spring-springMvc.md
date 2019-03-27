@@ -94,7 +94,8 @@ Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵�
 支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
 </p>
 
-# 配置Servlet的方式
+
+# Servlet 的配置方式
 ## Servlet jar 包下有三个核心接口
 ```java
 package javax.servlet;
@@ -140,7 +141,7 @@ public interface Servlet {
     public void destroy();
 }
 ```
-## 配置方式1：servlet 2.5 标准下的的web.xml
+## 方式1：2.5 标准的 web.xml
 ```html
 <web-app>
 
@@ -169,7 +170,7 @@ public interface Servlet {
 
 </web-app>
 ```
-## 配置方式2：servlet 3.0 标准下的注解
+## 方式2：3.0 标准注解
 ```java
 @WebListener
 public class MyListener implements ServletContextListener {
@@ -240,7 +241,7 @@ public class ShowTimeServlet extends HttpServlet {
 }
 ```
 
-## 配置方式3：SPI
+## 方式3：SPI
 ### 认识 SPI
 SPI，全名：Service Provider Interface，Java SPI具体约定:
 <p>
@@ -333,7 +334,7 @@ public interface ServletContainerInitializer {
 }
 ```
 
-spring做了什么？
+### spring 做了什么？
 
 <img src="/images/blog/spring-springMvc/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
 
