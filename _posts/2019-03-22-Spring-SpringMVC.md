@@ -278,7 +278,7 @@ public class SayChineseHello implements SayHelloable {
 }
 
 ```
-```java
+```java_holder_method_tree
 package com.gpengtao.java.spi;
 
 public class SayEnglishHello implements SayHelloable {
