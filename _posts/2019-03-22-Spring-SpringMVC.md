@@ -17,7 +17,7 @@ keywords: Spring, Spring MVC
 从配置管理到安全性、web应用程序到大数据处理，无论你的项目需要什么样的基础设施，总有一个 Spring Project 能帮助到你构建你的项目。从小处开始，只使用你需要的部分–Spring是模块化设计的。（翻译自spring-projects首页：https://spring.io/projects）
 </p>
 
-<img src="/images/blog/spring-springMvc/some-spring-projects.png" alt="部分spring projects" width="80%" height="80%"/>
+<img src="/images/blog/Spring-SpringMVC/some-spring-projects.png" alt="部分spring projects" width="80%" height="80%"/>
 
 ## 平时常用的Spring Framework
 <p>
@@ -26,7 +26,7 @@ keywords: Spring, Spring MVC
 Spring MVC是 Spring 的一个模块。
 </p>
 
-<img src="/images/blog/spring-springMvc/spring-framework.png" alt="spring-framework" width="100%" height="100%"/>
+<img src="/images/blog/Spring-SpringMVC/spring-framework.png" alt="spring-framework" width="100%" height="100%"/>
 
 
 # 什么是Servlet
@@ -60,7 +60,7 @@ Web 服务器使用 HTTP 协议来传输数据。最简单的一种情况是，�
 因此，Web服务器完成的工作就是发送网页至客户端。传输过程遵循 HTTP 协议，它指明了请求（request）消息和响应（response）消息的格式。 
 用户/客户端只能向 Web 服务器请求静态网页。
 </p>
-<img src="/images/blog/spring-springMvc/web-server.jpg" alt="Web 服务器" width="60%" height="60%"/>
+<img src="/images/blog/Spring-SpringMVC/web-server.jpg" alt="Web 服务器" width="60%" height="60%"/>
 <br>
 
 ### Servlet 容器
@@ -70,7 +70,7 @@ Servlet 容器为处理每个请求分配独立的 Java 线程。
 Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理，并将动态生成的结果返回至客户端。 
 和所有的 Java 程序一样，Servlet 容器运行在 JVM 中。引入 Servlet 容器是为了处理复杂的 HTTP 请求。Servlet 容器负责 Servlet 的创建、执行和销毁。
 </p>
-<img src="/images/blog/spring-springMvc/web-server-servlet-container.jpg" alt="Servlet 容器" width="60%" height="60%"/>
+<img src="/images/blog/Spring-SpringMVC/web-server-servlet-container.jpg" alt="Servlet 容器" width="60%" height="60%"/>
 <br>
 
 > 参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/
@@ -172,6 +172,7 @@ public interface Servlet {
 ```
 ## 方式2：3.0 标准的注解
 
+<img src="/images/blog/Spring-SpringMVC/javax-servlet-api.png" alt="javax-servlet-api" width="100%" height="100%"/>
 
 ```java
 @WebListener
@@ -338,7 +339,7 @@ public interface ServletContainerInitializer {
 
 ### Spring 做了什么
 
-<img src="/images/blog/spring-springMvc/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
+<img src="/images/blog/Spring-SpringMVC/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
 
 spring-web jar 包下配置了 SPI 文件，配置的接口是：**org.springframework.web.SpringServletContainerInitializer**。
 
@@ -370,7 +371,7 @@ Root WebApplicationContext 通常包含基础设施 beans，比如数据存储�
 下面的图片显示了这种关系：
 </p>
 
-<img src="/images/blog/spring-springMvc/mvc-context-hierarchy.png" alt="mvc-context-hierarchy" width="80%" height="80%"/>
+<img src="/images/blog/Spring-SpringMVC/mvc-context-hierarchy.png" alt="mvc-context-hierarchy" width="80%" height="80%"/>
 
 ## Servlet Config
 
