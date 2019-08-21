@@ -21,9 +21,9 @@ keywords: Spring, Spring MVC
 
 ## 平时常用的Spring Framework
 <p>
-平时说的spring，其实大部分意思是这个project而已，因为这个里面包含了最核心的"IoC container"部分。
+平时说的Spring，其实大部分意思是这个 project 而已，因为这个里面包含了最核心的"IoC container"部分。
 
-Spring MVC是spring的一个模块。
+Spring MVC是 Spring 的一个模块。
 </p>
 
 <img src="/images/blog/spring-springMvc/spring-framework.png" alt="spring-framework" width="100%" height="100%"/>
@@ -170,7 +170,9 @@ public interface Servlet {
 
 </web-app>
 ```
-## 方式2：3.0 标准注解
+## 方式2：3.0 标准的注解
+
+
 ```java
 @WebListener
 public class MyListener implements ServletContextListener {
