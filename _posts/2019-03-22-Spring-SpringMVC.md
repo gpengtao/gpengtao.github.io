@@ -172,7 +172,7 @@ public interface Servlet {
 ```
 ## 方式2：3.0 标准的注解
 
-<img src="/images/blog/Spring-SpringMVC/javax-servlet-api.png" alt="javax-servlet-api" width="100%" height="100%"/>
+<img src="/images/blog/Spring-SpringMVC/javax-servlet-api.png" alt="javax-servlet-api" width="60%" height="60%"/>
 
 ```java
 @WebListener
@@ -259,10 +259,8 @@ SPI，全名：Service Provider Interface，Java SPI具体约定:
 package com.gpengtao.java.spi;
 
 public interface SayHelloable {
-
     void say();
 }
-
 ```
 
 定义两个实现类：
@@ -270,7 +268,6 @@ public interface SayHelloable {
 package com.gpengtao.java.spi;
 
 public class SayChineseHello implements SayHelloable {
-
     @Override
     public void say() {
         System.out.println("哈喽");
@@ -278,11 +275,10 @@ public class SayChineseHello implements SayHelloable {
 }
 
 ```
-```java_holder_method_tree
+```java
 package com.gpengtao.java.spi;
 
 public class SayEnglishHello implements SayHelloable {
-
     @Override
     public void say() {
         System.out.println("hello");
