@@ -335,11 +335,18 @@ package javax.servlet;
 
 import java.util.Set;
 
-
 /**
  * Interface which allows a library/runtime to be notified of a web
  * application's startup phase and perform any required programmatic
  * registration of servlets, filters, and listeners in response to it.
+ * 
+ * <p>Implementations of this interface may be annotated with
+ * {@link javax.servlet.annotation.HandlesTypes HandlesTypes}, in order to
+ * receive (at their {@link #onStartup} method) the Set of application
+ * classes that implement, extend, or have been annotated with the class
+ * types specified by the annotation.
+ * 
+ * ......
  * 
  * @since Servlet 3.0
  */
@@ -355,6 +362,82 @@ public interface ServletContainerInitializer {
 
 spring-web jar 包下配置了 SPI 文件，配置的接口是：**org.springframework.web.SpringServletContainerInitializer**。
 
+```java
+/**
+ * Servlet 3.0 {@link ServletContainerInitializer} designed to support code-based
+ * configuration of the servlet container using Spring's {@link WebApplicationInitializer}
+ * SPI as opposed to (or possibly in combination with) the traditional
+ * {@code web.xml}-based approach.
+ *
+ * ......
+ * 
+ * @since 3.1
+ */
+@HandlesTypes(WebApplicationInitializer.class)
+public class SpringServletContainerInitializer implements ServletContainerInitializer {
+
+	/**
+	 * Delegate the {@code ServletContext} to any {@link WebApplicationInitializer}
+	 * implementations present on the application classpath.
+	 * <p>Because this class declares @{@code HandlesTypes(WebApplicationInitializer.class)},
+	 * Servlet 3.0+ containers will automatically scan the classpath for implementations
+	 * of Spring's {@code WebApplicationInitializer} interface and provide the set of all
+	 * such types to the {@code webAppInitializerClasses} parameter of this method.
+	 * <p>If no {@code WebApplicationInitializer} implementations are found on the classpath,
+	 * this method is effectively a no-op. An INFO-level log message will be issued notifying
+	 * the user that the {@code ServletContainerInitializer} has indeed been invoked but that
+	 * no {@code WebApplicationInitializer} implementations were found.
+	 * <p>Assuming that one or more {@code WebApplicationInitializer} types are detected,
+	 * they will be instantiated (and <em>sorted</em> if the @{@link
+	 * org.springframework.core.annotation.Order @Order} annotation is present or
+	 * the {@link org.springframework.core.Ordered Ordered} interface has been
+	 * implemented). Then the {@link WebApplicationInitializer#onStartup(ServletContext)}
+	 * method will be invoked on each instance, delegating the {@code ServletContext} such
+	 * that each instance may register and configure servlets such as Spring's
+	 * {@code DispatcherServlet}, listeners such as Spring's {@code ContextLoaderListener},
+	 * or any other Servlet API componentry such as filters.
+	 * @param webAppInitializerClasses all implementations of
+	 * {@link WebApplicationInitializer} found on the application classpath
+	 * @param servletContext the servlet context to be initialized
+	 * @see WebApplicationInitializer#onStartup(ServletContext)
+	 * @see AnnotationAwareOrderComparator
+	 */
+	@Override
+	public void onStartup(Set<Class<?>> webAppInitializerClasses, ServletContext servletContext)
+			throws ServletException {
+
+		List<WebApplicationInitializer> initializers = new LinkedList<WebApplicationInitializer>();
+
+		if (webAppInitializerClasses != null) {
+			for (Class<?> waiClass : webAppInitializerClasses) {
+				// Be defensive: Some servlet containers provide us with invalid classes,
+				// no matter what @HandlesTypes says...
+				if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) &&
+						WebApplicationInitializer.class.isAssignableFrom(waiClass)) {
+					try {
+						initializers.add((WebApplicationInitializer) waiClass.newInstance());
+					}
+					catch (Throwable ex) {
+						throw new ServletException("Failed to instantiate WebApplicationInitializer class", ex);
+					}
+				}
+			}
+		}
+
+		if (initializers.isEmpty()) {
+			servletContext.log("No Spring WebApplicationInitializer types detected on classpath");
+			return;
+		}
+
+		servletContext.log(initializers.size() + " Spring WebApplicationInitializers detected on classpath");
+		AnnotationAwareOrderComparator.sort(initializers);
+		for (WebApplicationInitializer initializer : initializers) {
+			initializer.onStartup(servletContext);
+		}
+	}
+
+}
+```
 
 # Spring MVC
 以下内容整理自官网。<br/>
@@ -362,13 +445,11 @@ spring-web jar 包下配置了 SPI 文件，配置的接口是：**org.springfra
 
 ## Web on Servlet Stack
 <p>
-Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就被包含在Spring框架中。
-正式名称“Spring Web MVC”来自它的源模块（Spring-Web MVC）的名称，但是它通常被称为“Spring MVC”。
+Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就被包含在Spring框架中。正式名称“Spring Web MVC”来自它的源模块（Spring-Web MVC）的名称，但是它通常被称为“Spring MVC”。
 </p>
 
 <p>
-与许多其他web框架一样，Spring MVC是围绕前端控制器模式（front controller pattern）设计的，
-其中 DispatcherServlet 提供了一个共享的请求处理算法，而实际工作则由可配置的委托组件执行。
+与许多其他web框架一样，Spring MVC是围绕前端控制器模式（front controller pattern）设计的，其中 DispatcherServlet 提供了一个共享的请求处理算法，而实际工作则由可配置的委托组件执行。
 </p>
 
 <p>
@@ -386,7 +467,7 @@ Root WebApplicationContext 通常包含基础设施 beans，比如数据存储�
 
 <img src="/images/blog/Spring-SpringMVC/mvc-context-hierarchy.png" alt="mvc-context-hierarchy" width="80%" height="80%"/>
 
-## Servlet Config
+## 配置
 
 下面的web.xml配置示例注册并初始化了DispatcherServlet：
 ```html
@@ -421,7 +502,25 @@ Root WebApplicationContext 通常包含基础设施 beans，比如数据存储�
 
 基于Java代码（Java-based）的配置方式，spring推荐的方式。
 
-下面的基于顶级接口 **WebApplicationInitializer** 配置DispatcherServlet，它会被Servlet容器自动检测到：
+下面的基于顶级接口 **WebApplicationInitializer** 配置 DispatcherServlet，它会被Servlet容器自动检测到：
+
+```java
+import org.springframework.web.WebApplicationInitializer;
+
+public class MyWebApplicationInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext container) {
+        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
+        appContext.setConfigLocation("/WEB-INF/spring/dispatcher-config.xml");
+
+        ServletRegistration.Dynamic registration = container.addServlet("dispatcher", new DispatcherServlet(appContext));
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
+    }
+}
+```
+
 ```java
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
@@ -438,22 +537,6 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic registration = servletCxt.addServlet("app", servlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/app/*");
-    }
-}
-```
-```java
-import org.springframework.web.WebApplicationInitializer;
-
-public class MyWebApplicationInitializer implements WebApplicationInitializer {
-
-    @Override
-    public void onStartup(ServletContext container) {
-        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
-        appContext.setConfigLocation("/WEB-INF/spring/dispatcher-config.xml");
-
-        ServletRegistration.Dynamic registration = container.addServlet("dispatcher", new DispatcherServlet(appContext));
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
     }
 }
 ```
