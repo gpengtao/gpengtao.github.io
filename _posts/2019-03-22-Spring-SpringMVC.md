@@ -30,6 +30,10 @@ Spring MVC是 Spring 的一个模块。
 
 
 # 什么是Servlet
+<p>
+介绍 Spring MVC 之前我们先来看下 Servlet 是什么。
+</p>
+
 ## Java Servlet 是工业标准（standard）
 有两个大的版本：
 ```html
@@ -76,19 +80,19 @@ Servlet 容器的主要作用是将请求转发给相应的 Servlet 进行处理
 > 参考原文：https://www.programcreek.com/2013/04/what-is-servlet-container/
 
 ### 目前最流行的Servlet容器
-Tomcat
+**Tomcat**
 <p>
 Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。
 不过，Tomcat处理静态HTML的能力不如Apache服务器。
 </p>
 
-Jetty
+**Jetty**
 <p>
 Jetty 是一个开源的servlet容器，它为基于Java的web容器，例如JSP和servlet提供运行环境。Jetty是使用Java语言编写的，
 它的API以一组JAR包的形式发布。开发人员可以将Jetty容器实例化成一个对象，可以迅速为一些独立运行（stand-alone）的Java应用提供网络和web连接。
 </p>
 
-Jboss
+**Jboss**
 <p>
 Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵循LGPL许可，可以在任何商业应用中免费使用。JBoss是一个管理EJB的容器和服务器，
 支持EJB 1.1、EJB 2.0和EJB3的规范。但JBoss核心服务不包括支持servlet/JSP的WEB容器，一般与Tomcat或Jetty绑定使用。
@@ -97,6 +101,8 @@ Jboss是一个基于J2EE的开放源代码的应用服务器。 JBoss代码遵�
 
 # Servlet 的配置方式
 ## Servlet jar 包下有三个核心接口
+配置的目的，是告诉容器构造哪些对象。
+
 ```java
 package javax.servlet;
 
@@ -141,6 +147,7 @@ public interface Servlet {
     public void destroy();
 }
 ```
+
 ## 方式1：2.5 标准的 web.xml
 ```html
 <web-app>
@@ -170,6 +177,7 @@ public interface Servlet {
 
 </web-app>
 ```
+
 ## 方式2：3.0 标准的注解
 
 <img src="/images/blog/Spring-SpringMVC/javax-servlet-api.png" alt="javax-servlet-api" width="60%" height="60%"/>
@@ -327,13 +335,21 @@ package javax.servlet;
 
 import java.util.Set;
 
+
+/**
+ * Interface which allows a library/runtime to be notified of a web
+ * application's startup phase and perform any required programmatic
+ * registration of servlets, filters, and listeners in response to it.
+ * 
+ * @since Servlet 3.0
+ */
 public interface ServletContainerInitializer {
 
     public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException; 
 }
 ```
 
-### Spring 做了什么
+### Spring MVC 做了什么
 
 <img src="/images/blog/Spring-SpringMVC/spring-servlet-init-spi.png" alt="spring配置的spi初始化" width="60%" height="60%"/>
 
@@ -341,12 +357,13 @@ spring-web jar 包下配置了 SPI 文件，配置的接口是：**org.springfra
 
 
 # Spring MVC
+以下内容整理自官网。<br/>
+参考：https://docs.spring.io/spring/docs/5.1.5.RELEASE/spring-framework-reference/index.html
+
 ## Web on Servlet Stack
 <p>
 Spring Web MVC是基于Servlet API构建的原始Web框架，从一开始就被包含在Spring框架中。
 正式名称“Spring Web MVC”来自它的源模块（Spring-Web MVC）的名称，但是它通常被称为“Spring MVC”。
-<br>
-参考：https://docs.spring.io/spring/docs/5.1.5.RELEASE/spring-framework-reference/index.html
 </p>
 
 <p>
